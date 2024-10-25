@@ -1,40 +1,153 @@
-#let template(doc) = [
-  // variables
-  subject: "IU Course", // The type of the document (e.g. "Assignment", "Advanced Workbook", "Exam")
-  type_of_work: "Assignment",
-  course_of_study: none, // The name of the course (e.g. "Einführung in das wissenschaftliche Arbeiten für IT und Technik")
+#let template(
+  // Assignment Metadata
   author: none,
+  course_of_study: none,
   student_number: none,
+  type_of_work: none,
+  subject: none,
+  subject_id: none,
   tutor: none,
+  // 
+  bibliography-file: none, 
+  bibliography-style: "apa", 
   date: datetime.today(),
+  lang: "de",
+  venue: "IU Internationale Hochschule", 
+  body,
+) = {
+  // Variables used within the document
+  let spacer = text(fill: gray)[#h(8pt) | #h(8pt)]
+  let font = "Arial"
+  let fontHeading = "Arial Black"
 
+  //
+  // Document Metadata
+  //
 
-  // page settings
-  #set page(
-  paper: "a4",
-  margin: (x: 2cm, y: 2cm),
-  )
- 
-  #set text(
-    font: "Arial",
-    size: 11pt, 
-    line_height: 1.5,
+  //
+  // Document Settings
+  //
+  set page(
+    paper: "a4",
+    margin: (x: 2cm, y: 2cm), 
+    header: locate(loc => {
+      if (loc.page() == 1) {
+        return block(
+          width: 100%, stroke: (bottom: 1pt + gray), inset: (bottom: 8pt, left: 2pt), [],
+        )
+      } else {
+        return block(
+          width: 100%, stroke: (bottom: 1pt + gray), inset: (bottom: 8pt, left: 2pt), [
+            #grid(
+              columns: (75%, 25%), align(
+                left, text(
+                  size: 8pt, fill: gray.darken(50%), (
+                      [*#type_of_work*],
+                      [#subject],
+                    ).filter(t => t != none).join(spacer),
+                ),
+              ), align(
+                right,
+              )[
+                #text(
+                  size: 9pt, fill: gray.darken(50%),
+                )[
+                  #author
+                ]
+              ],
+            )
+          ],
+        )
+      }
+    }),
+    // footer contains the page number and the date
+    footer: block(
+      width: 100%, stroke: (top: 1pt + gray), inset: (top: 8pt, right: 2pt), align(center, text(8pt, [
+       Seite #counter(page).display() von #locate((loc) => { counter(page).final(loc).first() })
+      ]))
+    ),
   )
 
-  #set heading(
-    font: "Cairo",
-    size: 12pt, 
-    line_height: 1.5,
+  //
+  // Main Body
+  //
+
+  set text(
+    font: font,
+    lang: "de",
+    size: 11pt
   )
+  
+  show heading: it => {
+    set text(font: font, size: 12pt)
+    [
+      #it.body
+    ]
+  }
+
+  //
+  // Title Page
+  //
+
+    // Surtitle
+  block(
+    text(
+      font: fontHeading, size: 12pt, fill: gray.darken(50%), 
+      [#author -- #type_of_work]
+    ),
+  )
+    // Title
+  block(
+    text(
+      font: fontHeading, size: 24pt, fill: black, 
+      [#subject]
+    ),
+  )
+    // Subtitle
+  block(
+    inset: (top: 5em, left: 2em),
+    text(
+      font: fontHeading, size: 12pt, fill: gray.darken(50%), 
+      [
+        Kurs: #course_of_study \
+        Kurs ID: #subject_id \
+        Student: #author \
+        Matrikelnummer: #student_number \
+        Tutor: #tutor \
+      ]
+    ),
+  )
+    // Author
+
+  pagebreak()
+
+  //
+  // Table of Contents
+  //
+  
+  par(leading: 1.5em, (
+    outline(title: "Inhaltsverzeichnis \n ")
+  ))
+
+  pagebreak()
+
+  //
+  // Main Body
+  //
+  
+  // set paragraph distance to 6pt
+  show par: set block(spacing: 2em)
+
+  // set line height to 1.5em and justify the text
+  set par(leading: 1.5em, justify: true)
+
   body
-] = {
 
-  // set document metadata
-  set document(title: title+author, author: author)
-
-  // bibliography
   if (bibliography-file != none) {
-    show bibliography: set text(10pt, font: "Arial")
-    bibliography(bibliography-file, title: text(10pt, "References"), style: bibliography-style)
+    show bibliography: set text(10pt, font: font)
+    bibliography(
+      bibliography-file, title: text(10pt, "References"), style: bibliography-style,
+    )
   }
 }
+
