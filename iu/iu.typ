@@ -125,10 +125,10 @@
     text(
       font: fontHeading, size: 12pt, fill: gray.darken(50%), 
       [
-        Kurs: #course_of_study \
-        Kurs ID: #subject_id \
         Student: #author \
         Matrikelnummer: #student_number \
+        Kurs: #course_of_study \
+        Kurs ID: #subject_id \
         Tutor: #tutor \
       ]
     ),
