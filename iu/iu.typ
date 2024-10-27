@@ -21,8 +21,23 @@
   let fontHeading = "Arial Black"
 
   //
+  // Functions
+  //
+  let generatePageCounter = page => {
+    let pageNumber = counter(page).display()
+      return "Seite " + (pageNumber) + " von " + locate((loc) => {
+        return counter(page).final(loc).first()
+      })
+  }
+
+  //
   // Document Metadata
   //
+  set document(
+    title: subject+type_of_work, 
+    author: author, 
+    date: date, 
+  )
 
   //
   // Document Settings
@@ -62,9 +77,9 @@
     }),
     // footer contains the page number and the date
     footer: block(
-      width: 100%, stroke: (top: 1pt + gray), inset: (top: 8pt, right: 2pt), align(center, text(8pt, [
-       Seite #counter(page).display() von #locate((loc) => { counter(page).final(loc).first() })
-      ]))
+      width: 100%, stroke: (top: 1pt + gray), inset: (top: 8pt, right: 2pt), align(center, text(8pt,
+        generatePageCounter(page)
+      ))
     ),
   )
 
@@ -89,6 +104,7 @@
   // Title Page
   //
 
+  set page(numbering: "(i)")
     // Surtitle
   block(
     text(
@@ -134,7 +150,10 @@
   //
   // Main Body
   //
-  
+ 
+  set page(numbering: "1 / 1")
+  counter(page).update(1)
+
   // set paragraph distance to 6pt
   show par: set block(spacing: 2em)
 
