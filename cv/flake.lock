@@ -1,0 +1,95 @@
+{
+  "nodes": {
+    "flake-utils": {
+      "inputs": {
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1726560853,
+        "narHash": "sha256-X6rJYSESBVr3hBoH0WbKE5KvhPU5bloyZ2L4K60/fPQ=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c1dfcf08411b08f6b8615f7d8971a2bfa81d5e8a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "fontawesome": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1729513245,
+        "narHash": "sha256-UcXIKsn4XtxMQN0LlbGn9uS7fbrhOz/dB9Wo3PDxxYw=",
+        "owner": "duskmoon314",
+        "repo": "typst-fontawesome",
+        "rev": "6e7617b291fb43eec26a0a9c6edb256c95b12ec0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "duskmoon314",
+        "repo": "typst-fontawesome",
+        "type": "github"
+      }
+    },
+    "linguify": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1730057325,
+        "narHash": "sha256-Am6BeIRWnVm4t96gnJkVYCLNUjoSF9fI5GRLj34PK20=",
+        "owner": "typst-community",
+        "repo": "linguify",
+        "rev": "e94674a108bf0241aeb748b0fa473a0e9dc8ca16",
+        "type": "github"
+      },
+      "original": {
+        "owner": "typst-community",
+        "repo": "linguify",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1730785428,
+        "narHash": "sha256-Zwl8YgTVJTEum+L+0zVAWvXAGbWAuXHax3KzuejaDyo=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "4aa36568d413aca0ea84a1684d2d46f55dbabad7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "fontawesome": "fontawesome",
+        "linguify": "linguify",
+        "nixpkgs": "nixpkgs"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

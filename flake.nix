@@ -1,7 +1,7 @@
 {
 	inputs = { 
 		nixpkgs = { 
-			url = "nixpkgs/nixpkgs-unstable";
+			url = "github:NixOS/nixpkgs/nixos-unstable";
 		};
 	};
   outputs = { self, nixpkgs, ... }: 
@@ -16,8 +16,8 @@
 				typst
 				typstfmt
 				typstyle
+				roboto
 			];
-
 		};
 	};
 
