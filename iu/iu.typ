@@ -17,8 +17,8 @@
 ) = {
   // Variables used within the document
   let spacer = text(fill: gray)[#h(8pt) | #h(8pt)]
-  let font = "Arial"
-  let fontHeading = "Arial Black"
+  let font = "Aerial"
+  let fontHeading = "Aerial Bold"
 
   //
   // Functions
