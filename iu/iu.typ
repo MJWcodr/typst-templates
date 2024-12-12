@@ -17,8 +17,13 @@
 ) = {
   // Variables used within the document
   let spacer = text(fill: gray)[#h(8pt) | #h(8pt)]
-  let font = "Aerial"
-  let fontHeading = "Aerial Bold"
+  let font = "Fira Sans"
+  let fontHeading = "Fira Sans"
+  let fontHeadingWeight = "bold"
+  let fontTitle = "Fira Sans Mono"
+  let fontTitleWeight = "bold"
+  let fontTitleSubtitle = "Fira Sans"
+  let fontCode = "Fira Code"
 
   //
   // Functions
@@ -94,7 +99,7 @@
   )
   
   show heading: it => {
-    set text(font: font, size: 12pt)
+    set text(font: font, weight: fontHeadingWeight, size: 12pt)
     [
       #it.body
     ]
@@ -108,14 +113,14 @@
     // Surtitle
   block(
     text(
-      font: fontHeading, size: 12pt, fill: gray.darken(50%), 
+      font: fontTitleSubtitle, size: 12pt, fill: gray.darken(50%), 
       [#author -- #type_of_work]
     ),
   )
     // Title
   block(
     text(
-      font: fontHeading, size: 24pt, fill: black, 
+      font: fontTitle, weight: fontTitleWeight, size: 24pt, fill: black, 
       [#subject]
     ),
   )
@@ -123,7 +128,7 @@
   block(
     inset: (top: 5em, left: 2em),
     text(
-      font: fontHeading, size: 12pt, fill: gray.darken(50%), 
+      font: fontTitleSubtitle, size: 12pt, fill: gray.darken(50%), 
       [
         Student: #author \
         Matrikelnummer: #student_number \
@@ -140,10 +145,10 @@
   //
   // Table of Contents
   //
-  
-  par(leading: 1.5em, (
-    outline(title: "Inhaltsverzeichnis \n ")
-  ))
+
+  // outline(title: "Inhaltsverzeichnis \n ")
+  heading(outlined: false, [Inhaltsverzeichnis])
+  outline(title: none, indent: 3em)
 
   pagebreak()
 
@@ -155,17 +160,29 @@
   counter(page).update(1)
 
   // set paragraph distance to 6pt
-  show par: set block(spacing: 2em)
 
   // set line height to 1.5em and justify the text
-  set par(leading: 1.5em, justify: true)
+
+  set par(
+  leading: 1.5em,
+  spacing: 2em,
+  first-line-indent: 1em,
+  justify: true,
+  )
+
+  //TODO: set line height in code blocks to 1.2em
+  
+  //TODO: set line height in tables to 1.2em
 
   body
 
   if (bibliography-file != none) {
+    pagebreak()
+
+    heading("Literaturverzeichnis")
     show bibliography: set text(10pt, font: font)
     bibliography(
-      bibliography-file, title: text(10pt, "References"), style: bibliography-style,
+      bibliography-file, title: none, style: bibliography-style,
     )
   }
 }

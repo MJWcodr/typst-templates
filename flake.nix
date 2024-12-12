@@ -10,6 +10,7 @@
 		pkgs = nixpkgs.legacyPackages.${system};
 	in
 	{
+		
 		defaultPackage.x86_64-linux = pkgs.mkShell {
 			name = "typst";
 			buildInputs = with pkgs; [
