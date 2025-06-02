@@ -10,6 +10,7 @@
   subject: "Introduction to Computer Science",
   type_of_work: "Advanced Workbook",
   bibliography-file: "example.bib",
+  use_iu_required_fonts: false,
 )
 
 = Introduction

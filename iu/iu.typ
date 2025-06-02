@@ -13,6 +13,7 @@
   date: datetime.today(),
   lang: "de",
   venue: "IU Internationale Hochschule", 
+  use_iu_required_fonts: true,
   body,
 ) = {
   // Variables used within the document
@@ -26,6 +27,17 @@
 
   // if use_iu_required_fonts is true, use the IU required fonts
   // They are: Arial (we are using Aerial) 
+  if (use_iu_required_fonts) {
+    font = "Arial"
+    fontTitle = "Arial"
+    fontTitleSubtitle = "Arial"
+    fontTitleWeight = "bold"
+  } else {
+    font = "Fira Sans"
+    fontTitle = "Fira Sans"
+    fontTitleSubtitle = "Fira Sans"
+    fontTitleWeight = "bold"
+  }
 
   //
   // Functions
