@@ -48,7 +48,12 @@
   set page(
     paper: "a4",
     margin: (x: 2cm, y: 2cm), 
-    header: context{here() => {
+    header: locate(loc => {
+      if (loc.page() == 1) {
+        return block(
+          width: 100%, stroke: (bottom: 1pt + gray), inset: (bottom: 8pt, left: 2pt), [],
+        )
+      } else {
         return block(
           width: 100%, stroke: (bottom: 1pt + gray), inset: (bottom: 8pt, left: 2pt), [
             #grid(
@@ -71,7 +76,8 @@
             )
           ],
         )
-    }}, 
+      }
+    }),
     // footer contains the page number and the date
     footer: block(
       width: 100%, stroke: (top: 1pt + gray), inset: (top: 8pt, right: 2pt), align(center, text(8pt,
@@ -167,7 +173,7 @@
   //TODO: set line height in tables to 1.2em
 
   body
-
+  
   if (bibliography-file != none) {
     pagebreak()
 
