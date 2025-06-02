@@ -30,9 +30,7 @@
   //
   let generatePageCounter = page => {
     let pageNumber = counter(page).display()
-      return "Seite " + (pageNumber) + " von " + locate((loc) => {
-        return counter(page).final(loc).first()
-      })
+    return "Seite " + (pageNumber) + " von " + (context counter(page).final().at(0))
   }
 
   //
@@ -50,12 +48,7 @@
   set page(
     paper: "a4",
     margin: (x: 2cm, y: 2cm), 
-    header: locate(loc => {
-      if (loc.page() == 1) {
-        return block(
-          width: 100%, stroke: (bottom: 1pt + gray), inset: (bottom: 8pt, left: 2pt), [],
-        )
-      } else {
+    header: context{here() => {
         return block(
           width: 100%, stroke: (bottom: 1pt + gray), inset: (bottom: 8pt, left: 2pt), [
             #grid(
@@ -78,8 +71,7 @@
             )
           ],
         )
-      }
-    }),
+    }}, 
     // footer contains the page number and the date
     footer: block(
       width: 100%, stroke: (top: 1pt + gray), inset: (top: 8pt, right: 2pt), align(center, text(8pt,
