@@ -17,13 +17,15 @@
 ) = {
   // Variables used within the document
   let spacer = text(fill: gray)[#h(8pt) | #h(8pt)]
-  let font = "Fira Sans, Fira Sans Mono, Fira Code, sans-serif"
-  let fontHeading = "Fira Sans"
   let fontHeadingWeight = "bold"
-  let fontTitle = "Fira Sans Mono"
   let fontTitleWeight = "bold"
-  let fontTitleSubtitle = "Fira Sans"
-  let fontCode = "Fira Code"
+  let font = "Aerial" // Arial is the IU required font, we use Aerial as a fallback
+  let fontTitle = "Aerial Mono" // Arial is the IU required font, we use Aerial as a fallback
+  let fontTitleSubtitle = "Aerial" // Arial is the IU required font, we use Aerial as a fallback
+  let fontTitleWeight = "bold" // Arial is the IU required font, we use Aerial as a fallback
+
+  // if use_iu_required_fonts is true, use the IU required fonts
+  // They are: Arial (we are using Aerial) 
 
   //
   // Functions
