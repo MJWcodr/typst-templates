@@ -17,7 +17,7 @@
 ) = {
   // Variables used within the document
   let spacer = text(fill: gray)[#h(8pt) | #h(8pt)]
-  let font = "Fira Sans"
+  let font = "Fira Sans, Fira Sans Mono, Fira Code, sans-serif"
   let fontHeading = "Fira Sans"
   let fontHeadingWeight = "bold"
   let fontTitle = "Fira Sans Mono"
@@ -48,12 +48,7 @@
   set page(
     paper: "a4",
     margin: (x: 2cm, y: 2cm), 
-    header: locate(loc => {
-      if (loc.page() == 1) {
-        return block(
-          width: 100%, stroke: (bottom: 1pt + gray), inset: (bottom: 8pt, left: 2pt), [],
-        )
-      } else {
+    header: context {
         return block(
           width: 100%, stroke: (bottom: 1pt + gray), inset: (bottom: 8pt, left: 2pt), [
             #grid(
@@ -76,14 +71,13 @@
             )
           ],
         )
-      }
-    }),
+    },
     // footer contains the page number and the date
-    footer: block(
+    footer: context{block(
       width: 100%, stroke: (top: 1pt + gray), inset: (top: 8pt, right: 2pt), align(center, text(8pt,
         generatePageCounter(page)
       ))
-    ),
+    )}
   )
 
   //
