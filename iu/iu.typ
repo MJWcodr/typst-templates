@@ -38,6 +38,16 @@
     fontTitleSubtitle = "Fira Sans"
     fontTitleWeight = "bold"
   }
+  
+  // Set some metadata for the build process
+  // This is used to generate the document title and author
+  //
+
+  // Current title style is: 20230325_Mustermann_Max_12345678_Musterkurs01 
+  [#metadata(date.display("[year][month][day]")) <date_normalized>]
+  [#metadata(author.replace(" ", "_")) <author_normalized>]
+  [#metadata(student_number) <student_number>]
+  [#metadata(subject_id) <subject_id>]
 
   //
   // Functions
@@ -53,7 +63,7 @@
   set document(
     title: subject+type_of_work, 
     author: author, 
-    date: date, 
+    date: date , 
   )
 
   //
@@ -97,8 +107,7 @@
   //
   // Main Body
   //
-
-  set text(
+    set text(
     font: font,
     lang: "de",
     size: 11pt
