@@ -14,6 +14,11 @@
   lang: "de",
   venue: "IU Internationale Hochschule", 
   use_iu_required_fonts: true,
+
+  // Change in document modes
+  // Add compact mode
+  compact_layout: false,
+
   body,
 ) = {
   // Variables used within the document
@@ -124,6 +129,8 @@
   // Title Page
   //
 
+  if (not compact_layout) {
+
   set page(numbering: "(i)")
     // Surtitle
   block(
@@ -153,6 +160,7 @@
       ]
     ),
   )
+
     // Author
 
   pagebreak()
@@ -166,6 +174,8 @@
   outline(title: none, indent: 3em)
 
   pagebreak()
+
+  }
 
   //
   // Main Body
@@ -192,10 +202,10 @@
   body
   
   if (bibliography-file != none) {
-    pagebreak()
+    if (not compact_layout) { pagebreak() }
 
     heading("Literaturverzeichnis")
-    show bibliography: set text(10pt, font: font)
+    show bibliography: set text(20pt, font: font)
     bibliography(
       bibliography-file, title: none, style: bibliography-style,
     )

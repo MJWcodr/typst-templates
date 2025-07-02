@@ -11,6 +11,7 @@
   type_of_work: "Advanced Workbook",
   bibliography-file: "example.bib",
   use_iu_required_fonts: false,
+  compact_layout: false
 )
 
 = Introduction
@@ -55,7 +56,6 @@ hello_world()
 
 ```
 
-
 = Chapter 3: Cool Table
 
 #lorem(10)
@@ -81,20 +81,7 @@ hello_world()
   lorem(3), lorem(5), lorem(10)
 )
 
-
-
 = Chapter 4: Conclusion
 
 #lorem(100)
-
-= Bibliography
-
-#strong("Work in Progress")
-
-#lorem(10)
-
-
-
-
-
 
