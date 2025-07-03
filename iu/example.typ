@@ -22,9 +22,18 @@
 
 #lorem(20)
 
+
 == Chapter 1a: Fundamentals
 
 The important works of @smith2023quantum, @brown2022ml, @zhang2024neural, @tech2023report and @garcia2023analysis are discussed in this chapter.
+
+#lorem(30)
+
+#parbreak()
+
+#lorem(30)
+
+#parbreak()
 
 #lorem(100)
 

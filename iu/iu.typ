@@ -62,11 +62,15 @@
     return "Seite " + (pageNumber) + " von " + (context counter(page).final().at(0))
   }
 
+  /// Appearance of elements
+  show link: underline
+
+
   //
   // Document Metadata
   //
   set document(
-    title: subject+type_of_work, 
+    title: subject + " - " + type_of_work, 
     author: author, 
     date: date , 
   )
@@ -117,7 +121,7 @@
     lang: "de",
     size: 11pt
   )
-  
+ 
   show heading: it => {
     set text(font: font, weight: fontHeadingWeight, size: 12pt)
     [
@@ -190,9 +194,13 @@
 
   set par(
   leading: 1.5em,
-  spacing: 2em,
-  first-line-indent: 1em,
+  spacing: 2.5em,
+  first-line-indent: 0em,
   justify: true,
+  )
+
+  set block(
+    spacing: 2em // does nothing so far
   )
 
   //TODO: set line height in code blocks to 1.2em
@@ -205,7 +213,7 @@
     if (not compact_layout) { pagebreak() }
 
     heading("Literaturverzeichnis")
-    show bibliography: set text(20pt, font: font)
+    show bibliography: set text(10pt, font: font)
     bibliography(
       bibliography-file, title: none, style: bibliography-style,
     )
