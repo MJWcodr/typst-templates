@@ -15,16 +15,13 @@
 )
 
 = Introduction
-
 #lorem(100)
 
 = Chapter 1: Basics
-
 #lorem(20)
 
 
 == Chapter 1a: Fundamentals
-
 The important works of @smith2023quantum, @brown2022ml, @zhang2024neural, @tech2023report and @garcia2023analysis are discussed in this chapter.
 
 #lorem(30)
@@ -39,19 +36,20 @@ The important works of @smith2023quantum, @brown2022ml, @zhang2024neural, @tech2
 
 == Chapter 1b: Basics
 
-#lorem(100)
+#lorem(30)
 
-= Chapter 2: Advanced
 
-#lorem(50)
+= Chapter 2: Heading Test
+
+#lorem(30)
 
 == Chapter 2a: Profound
 
-#lorem(100)
+#lorem(30)
 
 === Chapter 2a.1: Deep
 
-#lorem(100)
+#lorem(30)
 
 *Some Code:*
 

@@ -116,19 +116,13 @@
   //
   // Main Body
   //
-    set text(
+  
+  set text(
     font: font,
     lang: "de",
     size: 11pt
   )
- 
-  show heading: it => {
-    set text(font: font, weight: fontHeadingWeight, size: 12pt)
-    [
-      #it.body
-    ]
-  }
-
+  
   //
   // Title Page
   //
@@ -193,19 +187,28 @@
   // set line height to 1.5em and justify the text
 
   set par(
-  leading: 1.5em,
-  spacing: 2.5em,
-  first-line-indent: 0em,
-  justify: true,
-  )
-
-  set block(
-    spacing: 2em // does nothing so far
+    leading: 1.0em,
+    spacing: 2.0em,
+    first-line-indent: 0em,
+    justify: true,
   )
 
   //TODO: set line height in code blocks to 1.2em
   
   //TODO: set line height in tables to 1.2em
+  
+  show heading: it => {
+    set block(above: 2em, below: 1em)
+    set text(font: font, weight: fontHeadingWeight, size: 11pt)
+    [
+      #set par(spacing: 1.2em)
+      #it.body
+
+    ]
+  }
+  
+  // show heading.where(level: 1): set block(spacing: 2em) // both above and below
+  
 
   body
   
