@@ -1,30 +1,65 @@
-#let titleFont = "Fira Mono"
+#let title-font = "Inter"
+#let subtitle-font = "Fira Mono"
+#let background-color = rgb("#F7F8F5")
+#let dark-gray-text = rgb("#262626")
+#let light-gray-text = rgb("#6E6E6E")
+#let yellow-color = rgb("#F3C11B")
 
-#set rect(
-  width: 100%,
-  height: 100%,
-  inset: 4pt,
-)
+#let yellow-rectangle = [
+  #pad(
+    top: -40pt,
+    bottom: -80pt
+  )[
+  #show rect: it => block(it)
+  #rect(
+    fill: yellow-color,
+    width: 80pt,
+    height: 15pt,
+  )
+]]
 
 #let title-slide(
   title:"",
   author: "",
   datum: "",
+  subtitle: "",
 ) = [
 
-  #align(center+horizon)[
-    #set text(
-      font: titleFont,
-      size: 36pt,
-      weight: "black",
+    #block(
+      inset: 40pt,
+      width: 80%,
+      [
+      #yellow-rectangle \
+      #set par(
+        leading: 0.5em,
+      )
+      #set text(
+        font: title-font,
+        size: 48pt,
+        weight: "bold",
+        fill: dark-gray-text,
+      )
+      #title \
+      #block(
+        width: 90%,
+      )[
+      #if subtitle != "" [
+        #pad(
+          top: -20pt,
+        text(
+          font: subtitle-font,
+          size: 18pt,
+          weight: "regular",
+          fill: light-gray-text,
+        )[#subtitle]
+      )]]
+    ]
     )
-    #title
-    
+
     #set text(
-      font: titleFont,
+      font: title-font,
       size: 24pt,
       weight: "regular"
-
     )
     #if author != "" [
       Autor: #author \
@@ -33,53 +68,62 @@
       Datum: #datum \
     ]
   ]
-
   #pagebreak()
-]
-
+  
 #let background-design = [
-  #rect(
-    width: 50%,
-    height: 50%,
-    fill: white,
-    stroke: black,
-  )
+   
 ];
 
-#let header(title-line) = [
- 
+#let header(date) = [
   #set text(
-    font: titleFont,
+    font: subtitle-font,
     size: 12pt,
-    weight: "bold"
+  )
+
+  #align(left+top)[
+    #date
+  ]
+];
+
+#let footer(title-line) = [
+  #pad(
+    top: -20pt,
+  [
+  #set text(
+    font: subtitle-font,
+    size: 12pt,
   )
 
   #align(left+top)[
     #title-line
-  ]
+  ]])
 ];
 
 #let template(
   doc, 
-  author: ""
+  author: "",
+  date: "",
 ) = [
     #import "@preview/touying:0.6.1": *
     #import themes.simple: *
     #show: simple-theme.with(
       aspect-ratio: "16-9", 
-      header: header(author), 
-      footer: [Kek]
-    )
-  
-    #set page(
-      background: background-design
+      header: header(date), 
+      footer: footer(author),
     )
 
-    #set text(
-      font: titleFont,
-      size: 12pt,
-      style: "italic"
+    // set date to current date if not provided
+    #set page(
+      fill: background-color,
+      background: background-design,
     )
+   
+    #set text(
+      font: title-font,
+      size: 24pt,
+      weight: "regular",
+      fill: dark-gray-text,
+    ) 
 
     #doc
 ]
