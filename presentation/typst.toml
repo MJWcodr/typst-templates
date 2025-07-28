@@ -4,5 +4,5 @@ version = "0.0.1"
 entrypoint = "presentation.typ"
 authors = ["Matthias Wünsch <https://git.wuensch.sh>"]
 license = "EUPL"
-description = "My presentation template""
+description = "My presentation template"
 homepage = "https://git.wuensch.sh/mjwcodr/typst-templates"
