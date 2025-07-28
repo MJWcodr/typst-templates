@@ -24,12 +24,11 @@
   datum: "",
   subtitle: "",
 ) = [
-
     #block(
-      inset: 40pt,
-      width: 80%,
-      [
-      #yellow-rectangle \
+      above: 100pt,
+      inset: 0pt,
+      width: 73%,
+      [#yellow-rectangle \
       #set par(
         leading: 0.5em,
       )
@@ -67,11 +66,12 @@
     #if datum != "" [
       Datum: #datum \
     ]
-  ]
-  #pagebreak()
+]
   
 #let background-design = [
-   
+
+  #place(dx: 60%, dy: -10%, image("./assets/background.svg", height: 120%)),
+
 ];
 
 #let header(date) = [

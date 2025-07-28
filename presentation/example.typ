@@ -1,7 +1,7 @@
-#import "presentation.typ": template, title-slide
+#import "presentation.typ": template, title-slide, yellow-rectangle
 
 #show: template.with(
-  date: "October 2023",
+  date: "15. Jul 2025",
   author: [
     Matthias Wünsch \
     IU Internationale Hochschule
@@ -10,9 +10,10 @@
 
 
 #title-slide(
-  title: "Models of Learning Revisited",
+  title: "",
   subtitle: "An empirical analysis of contemporary sociological theorems",
 )
 
+#outline()
 
-extra
+
