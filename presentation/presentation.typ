@@ -69,7 +69,6 @@
 ]
   
 #let background-design = [
-
   #place(dx: 60%, dy: -10%, image("./assets/background.svg", height: 120%)),
 
 ];
