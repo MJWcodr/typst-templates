@@ -20,6 +20,8 @@
       tag_color = rgb("#e99ea5")
     } else if body == "cleaning" {
       tag_color = rgb("#9dbbbf")
+    } else if body == "cats" {
+      tag_color = rgb("#f2b6c0")
     }
   spacer
   highlight(fill: tag_color, radius: 25%, extent: 5pt, [

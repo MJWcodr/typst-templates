@@ -2,13 +2,28 @@
 
 #show: template
 
-- Cleaning Milk #tag("cleaning")
-- Soy Sauce #tag("asian")
-- Cottage Cheese #tag("dairy")
-- Guava #tag("fruits")
-- Oat #tag("grains")
-- Coriander #tag("herbs")
-- Cumin #tag("spices")
-- Cucumber #tag("vegetables")
-- Veg. Bacon #tag("vegetarian")
+= For the vegan chocolate cake
+
+- cocoa powder #tag("baking")
+- flour #tag("baking") 
+- almond milk #tag("dairy")
+- granulated sugar #tag("baking")
+- baking powder #tag("baking")
+- baking soda #tag("baking")
+- coconut oil or canola oil #tag("baking")
+- apfelmus (apple sauce) #tag("baking")
+- vanilla extract or sugar #tag("baking")
+- vegan butter #tag("dairy")
+- powdered sugar #tag("baking")
+
+- 5 CHF Vegetable Bag #tag("vegetables")
+
+= For Shakshuka
+
+- Peppers #tag("vegetables")
+
+= Other items
+
+- Hummus #tag("vegetarian")
+- vegan Joghurt #tag("dairy")
 
